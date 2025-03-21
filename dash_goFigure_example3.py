@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 
 # Create a Dash app
 app = dash.Dash(__name__)
+server = app.server  # Expose Flask server for Gunicorn deployment
 
 # Initial dataset
 datasets = {
@@ -51,7 +52,6 @@ app.layout = html.Div([
 ])
 
 # Callback to update both charts based on dropdown and slider values
-# make sure everything is the right syntax
 @app.callback(
     [Output('line-chart', 'figure'),
      Output('pie-chart', 'figure')],
@@ -61,7 +61,6 @@ app.layout = html.Div([
      Input('slider-C', 'value'),
      Input('slider-D', 'value')]
 )
-# all the names in here are the values, the order in here has to match the callback order 
 def update_graphs(selected_dataset, a, b, c, d):
     """Updates the charts based on selected dataset and slider values."""
     
