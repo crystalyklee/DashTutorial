@@ -1,3 +1,5 @@
-dash==2.16.1
-plotly==5.21.0
-flask==3.0.2
+dash
+dash-core-components
+dash-html-components
+plotly
+gunicorn
